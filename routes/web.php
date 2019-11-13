@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::resource('/reviews', 'ReviewController')->names('reviews');
+Route::resource('/comments', 'CommentController')->names('comments');
+
+Route::get('/home', 'HomeController@index')->name('home');
